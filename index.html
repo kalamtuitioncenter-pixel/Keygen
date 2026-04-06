@@ -143,9 +143,9 @@ tbody tr:hover td{background:var(--bg)}
         <div class="fg">
           <label class="fl">Plan</label>
           <select class="fi" id="plan-sel" onchange="updatePreview()">
-            <option value="BASIC">BASIC — ₹1,999/year</option>
-            <option value="PRO" selected>PRO — ₹3,999/year</option>
-            <option value="ENTERPRISE">ENTERPRISE — ₹7,999/year</option>
+            <option value="BASIC">BASIC — ₹999/year</option>
+            <option value="PRO" selected>PRO — ₹1,999/year</option>
+            <option value="ENTERPRISE">ENTERPRISE — ₹2,999/year</option>
           </select>
         </div>
 
@@ -198,17 +198,17 @@ tbody tr:hover td{background:var(--bg)}
         <div class="plan-grid" style="margin-bottom:0">
           <div class="plan-card" id="pc-basic" onclick="setPlan('BASIC',this)">
             <div class="plan-name">BASIC</div>
-            <div class="plan-price" style="font-size:16px">₹1,999</div>
+            <div class="plan-price" style="font-size:16px">₹999</div>
             <div class="plan-feat">150 students<br>Google Sheets<br>No AI<br>No Reports</div>
           </div>
           <div class="plan-card sel" id="pc-pro" onclick="setPlan('PRO',this)">
             <div class="plan-name">PRO ⭐</div>
-            <div class="plan-price" style="font-size:16px">₹3,999</div>
+            <div class="plan-price" style="font-size:16px">₹1,999</div>
             <div class="plan-feat">500 students<br>Google Sheets<br>AI Features<br>Reports</div>
           </div>
           <div class="plan-card" id="pc-ent" onclick="setPlan('ENTERPRISE',this)">
-            <div class="plan-name">ENTERPRISE</div>
-            <div class="plan-price" style="font-size:16px">₹7,999</div>
+            <div class="plan-name">PREMIUM</div>
+            <div class="plan-price" style="font-size:16px">₹2,999</div>
             <div class="plan-feat">Unlimited<br>Multi-Center<br>All Features<br>API Access</div>
           </div>
         </div>
@@ -276,7 +276,7 @@ tbody tr:hover td{background:var(--bg)}
         <select class="fi" id="bulk-plan">
           <option value="BASIC">BASIC</option>
           <option value="PRO" selected>PRO</option>
-          <option value="ENTERPRISE">ENTERPRISE</option>
+          <option value="ENTERPRISE">PREMIUM</option>
         </select>
       </div>
       <div class="fg">
@@ -435,17 +435,17 @@ tbody tr:hover td{background:var(--bg)}
     <div class="plan-grid" style="margin-bottom:20px">
       <div class="plan-card">
         <div class="plan-name">BASIC</div>
-        <div class="plan-price">₹1,999<span style="font-size:11px;color:var(--tx2)">/yr</span></div>
+        <div class="plan-price">₹999<span style="font-size:11px;color:var(--tx2)">/yr</span></div>
         <div class="plan-feat">Up to 150 students<br>✅ Auto Backup<br>✅ Google Sheets<br>❌ AI Features<br>❌ Reports</div>
       </div>
       <div class="plan-card sel">
         <div class="plan-name" style="color:var(--pr)">PRO ⭐ Most Popular</div>
-        <div class="plan-price">₹3,999<span style="font-size:11px;color:var(--tx2)">/yr</span></div>
+        <div class="plan-price">₹1,999<span style="font-size:11px;color:var(--tx2)">/yr</span></div>
         <div class="plan-feat">Up to 500 students<br>✅ Auto Backup<br>✅ Google Sheets<br>✅ AI Features<br>✅ Reports</div>
       </div>
       <div class="plan-card">
-        <div class="plan-name">ENTERPRISE</div>
-        <div class="plan-price">₹7,999<span style="font-size:11px;color:var(--tx2)">/yr</span></div>
+        <div class="plan-name">PREMIUM</div>
+        <div class="plan-price">₹2,999<span style="font-size:11px;color:var(--tx2)">/yr</span></div>
         <div class="plan-feat">Unlimited students<br>✅ Multi-Center<br>✅ All Features<br>✅ API Access<br>✅ Priority Support</div>
       </div>
     </div>
@@ -468,8 +468,8 @@ tbody tr:hover td{background:var(--bg)}
       <table>
         <thead><tr><th>Customers</th><th>Avg Plan</th><th>Setup Fee</th><th>Annual Revenue</th></tr></thead>
         <tbody>
-          <tr><td>10</td><td>Pro ₹3,999</td><td>₹500 × 10</td><td><strong>₹44,990</strong></td></tr>
-          <tr><td>25</td><td>Pro ₹3,999</td><td>₹500 × 25</td><td><strong>₹1,12,475</strong></td></tr>
+          <tr><td>10</td><td>Pro ₹1,999</td><td>₹500 × 10</td><td><strong>₹44,990</strong></td></tr>
+          <tr><td>25</td><td>Pro ₹1,999</td><td>₹500 × 25</td><td><strong>₹1,12,475</strong></td></tr>
           <tr><td>50</td><td>Mix avg ₹3,200</td><td>₹500 × 50</td><td><strong>₹1,85,000</strong></td></tr>
           <tr><td>100</td><td>Mix avg ₹3,200</td><td>₹0 (repeat)</td><td><strong>₹3,20,000</strong></td></tr>
         </tbody>
@@ -541,7 +541,7 @@ function validateKeyFn(key) {
 let generatedKeys = [];
 let bulkKeys = [];
 let ledger = JSON.parse(localStorage.getItem('erp_ledger') || '[]');
-const PLAN_PRICES = { BASIC: 1999, PRO: 3999, ENTERPRISE: 7999 };
+const PLAN_PRICES = { BASIC: 999, PRO: 1999, ENTERPRISE: 2999 };
 
 /* ═══════════════════════════════════════════════════
    UI FUNCTIONS
@@ -847,7 +847,7 @@ function syncAllKeys(ss, ledger, ts) {
 
   // Write all ledger entries
   if (ledger.length > 0) {
-    const PRICES = { BASIC: 1999, PRO: 3999, ENTERPRISE: 7999 };
+    const PRICES = { BASIC: 999, PRO: 1999, ENTERPRISE: 2999 };
     const now = new Date();
     const rows = ledger.map(entry => {
       const expired = new Date(parseInt(entry.year), 3, 30) < now;
@@ -887,7 +887,7 @@ function addSingleKey(ss, entry, ts) {
   let sheet = ss.getSheetByName('Sales Ledger');
   if (!sheet) { syncAllKeys(ss, [entry], ts); return; }
 
-  const PRICES = { BASIC: 1999, PRO: 3999, ENTERPRISE: 7999 };
+  const PRICES = { BASIC: 999, PRO: 1999, ENTERPRISE: 2999 };
   const expired = new Date(parseInt(entry.year), 3, 30) < new Date();
 
   sheet.appendRow([
@@ -912,7 +912,7 @@ function updateSummary(ss, payload, ts) {
 
   const ledger = payload.ledger || [];
   const now = new Date();
-  const PRICES = { BASIC: 1999, PRO: 3999, ENTERPRISE: 7999 };
+  const PRICES = { BASIC: 999, PRO: 1999, ENTERPRISE: 2999 };
 
   const total   = ledger.length;
   const active  = ledger.filter(l => new Date(parseInt(l.year), 3, 30) > now).length;
@@ -933,9 +933,9 @@ function updateSummary(ss, payload, ts) {
     ['Total Revenue (Est.)', 'Rs.' + revenue.toLocaleString('en-IN'), '', ''],
     ['', '', '', ''],
     ['PLAN BREAKDOWN', 'COUNT', 'REVENUE (Est.)', ''],
-    ['BASIC  (Rs.1,999/yr)', basic, 'Rs.' + (basic*1999).toLocaleString('en-IN'), ''],
-    ['PRO    (Rs.3,999/yr)', pro,   'Rs.' + (pro*3999).toLocaleString('en-IN'), ''],
-    ['ENTERPRISE (Rs.7,999/yr)', ent, 'Rs.' + (ent*7999).toLocaleString('en-IN'), ''],
+    ['BASIC  (Rs.999/yr)', basic, 'Rs.' + (basic*999).toLocaleString('en-IN'), ''],
+    ['PRO    (Rs.1,999/yr)', pro,   'Rs.' + (pro*1999).toLocaleString('en-IN'), ''],
+    ['PREMIUM (Rs.2,999/yr)', ent, 'Rs.' + (ent*2999).toLocaleString('en-IN'), ''],
   ];
 
   sum.getRange(1, 1, data.length, 4).setValues(data);
