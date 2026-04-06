@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalam ERP — License Key Generator</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--pr:#1a56db;--bg:#f1f5f9;--card:#fff;--tx:#0f172a;--tx2:#475569;--tx3:#94a3b8;--br:#e2e8f0;--green:#16a34a;--red:#dc2626;--amber:#ca8a04}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;font-size:14px}
+.wrap{max-width:980px;margin:0 auto;padding:24px 16px 60px}
+/* Header */
+.hdr{background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:14px;padding:24px 28px;margin-bottom:24px;display:flex;align-items:center;gap:18px}
+.hdr-logo{width:52px;height:52px;background:var(--pr);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;flex-shrink:0}
+.hdr-title{font-size:22px;font-weight:700;color:#fff}
+.hdr-sub{font-size:13px;color:#93c5fd;margin-top:3px}
+.hdr-badge{margin-left:auto;background:rgba(255,255,255,.12);border-radius:8px;padding:8px 14px;text-align:right}
+.hdr-badge-t{font-size:11px;color:#93c5fd}
+.hdr-badge-v{font-size:20px;font-weight:700;color:#fff}
+/* Cards */
+.card{background:var(--card);border:.5px solid var(--br);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.card-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card-title svg{width:16px;height:16px;flex-shrink:0}
+/* Grid */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+/* Form */
+.fg{margin-bottom:12px}
+.fl{font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:4px;display:block;text-transform:uppercase;letter-spacing:.04em}
+.fi{width:100%;padding:9px 12px;border-radius:8px;border:.5px solid var(--br);background:var(--card);color:var(--tx);font-size:13px;outline:none;font-family:inherit;transition:border-color .15s}
+.fi:focus{border-color:var(--pr);box-shadow:0 0 0 3px rgba(26,86,219,.08)}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:9px;border:.5px solid var(--br);background:var(--card);color:var(--tx);cursor:pointer;font-size:13px;font-weight:500;transition:.14s;font-family:inherit}
+.btn:hover{background:var(--bg)}.btn:active{transform:scale(.98)}
+.btn svg{width:14px;height:14px}
+.btn-p{background:var(--pr);color:#fff;border-color:var(--pr)}.btn-p:hover{background:#1239a5}
+.btn-g{background:var(--green);color:#fff;border-color:var(--green)}.btn-g:hover{background:#15803d}
+.btn-r{background:var(--red);color:#fff;border-color:var(--red)}.btn-r:hover{background:#b91c1c}
+.btn-sm{padding:5px 11px;font-size:11px}
+.btn-lg{padding:12px 22px;font-size:14px;font-weight:600}
+/* Plan cards */
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.plan-card{border:2px solid var(--br);border-radius:10px;padding:14px;cursor:pointer;transition:.14s;text-align:center;background:var(--card)}
+.plan-card:hover{border-color:#93c5fd}
+.plan-card.sel{border-color:var(--pr);background:#eff6ff}
+.plan-name{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.plan-price{font-size:22px;font-weight:700;color:var(--pr);margin-bottom:8px}
+.plan-feat{font-size:11px;color:var(--tx2);line-height:1.9}
+/* Key output */
+.key-box{background:#0f172a;border-radius:10px;padding:18px;font-family:'Courier New',monospace}
+.key-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:.5px solid rgba(255,255,255,.07)}
+.key-item:last-child{border-bottom:none}
+.key-val{flex:1;color:#86efac;font-size:13px;font-weight:600;letter-spacing:.04em;word-break:break-all}
+.key-meta{font-size:10px;color:#64748b;white-space:nowrap}
+.key-copy{background:rgba(255,255,255,.08);border:.5px solid rgba(255,255,255,.15);color:#e2e8f0;border-radius:6px;padding:3px 9px;cursor:pointer;font-size:10px;font-family:inherit;transition:.12s;flex-shrink:0}
+.key-copy:hover{background:rgba(255,255,255,.15)}
+/* Table */
+.tbl-wrap{overflow-x:auto;border-radius:10px;border:.5px solid var(--br)}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:var(--bg);padding:9px 12px;text-align:left;font-weight:600;color:var(--tx2);font-size:10px;text-transform:uppercase;letter-spacing:.05em;border-bottom:.5px solid var(--br);white-space:nowrap}
+td{padding:9px 12px;border-bottom:.5px solid var(--br);color:var(--tx);vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--bg)}
+/* Badge */
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:600}
+.bg{background:#dcfce7;color:#166534}.br2{background:#fee2e2;color:#991b1b}
+.ba{background:#fef9c3;color:#854d0e}.bb{background:#dbeafe;color:#1d4ed8}
+.bp{background:#ede9fe;color:#5b21b6}
+/* Stats */
+.stat-row{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.stat-box{flex:1;min-width:120px;background:var(--card);border:.5px solid var(--br);border-radius:10px;padding:12px 14px}
+.stat-lbl{font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.stat-val{font-size:22px;font-weight:700;color:var(--tx)}
+.stat-sub{font-size:10px;color:var(--tx2);margin-top:2px}
+/* Toast */
+.toast{position:fixed;bottom:20px;right:20px;background:#0f172a;color:#f1f5f9;padding:10px 16px;border-radius:9px;font-size:13px;font-weight:500;z-index:999;box-shadow:0 4px 12px rgba(0,0,0,.2);opacity:0;transform:translateY(8px);transition:.25s;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0)}
+/* Tabs */
+.tabs{display:flex;background:var(--bg);border-radius:10px;padding:3px;gap:2px;margin-bottom:16px}
+.tab{flex:1;padding:8px;border-radius:8px;border:none;background:transparent;color:var(--tx2);cursor:pointer;font-size:12px;font-weight:500;transition:.12s;font-family:inherit;text-align:center}
+.tab.on{background:var(--card);color:var(--tx);border:.5px solid var(--br);font-weight:600}
+/* Warning */
+.warn-box{background:#fffbeb;border:.5px solid #fde68a;border-radius:10px;padding:14px;font-size:12px;color:#92400e;line-height:1.7;margin-bottom:14px}
+.info-box{background:#eff6ff;border:.5px solid #bfdbfe;border-radius:10px;padding:14px;font-size:12px;color:#1e40af;line-height:1.7;margin-bottom:14px}
+.secret-box{background:#0f172a;border-radius:10px;padding:14px;font-family:monospace;font-size:12px;color:#86efac;line-height:1.7}
+/* Ledger table */
+.ledger-status{display:flex;gap:8px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-g{background:var(--green)}.dot-a{background:var(--amber)}.dot-r{background:var(--red)}
+/* Mobile */
+@media(max-width:600px){
+  .grid2,.grid3,.plan-grid{grid-template-columns:1fr}
+  .stat-row{flex-direction:column}
+  .hdr{flex-direction:column;text-align:center}
+  .hdr-badge{margin-left:0}
+  .tabs{flex-wrap:wrap}
+}
+/* Print */
+@media print{.no-print{display:none}.key-box{background:#f8fafc;border:1px solid #e2e8f0}.key-val{color:#16a34a}}
+</style>
+</head>
+<body>
+<div class="toast" id="toast"></div>
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-logo">KT</div>
+  <div>
+    <div class="hdr-title">Kalam Tuition ERP — License Key Generator</div>
+    <div class="hdr-sub">Creator Tool · Confidential · Do not share this file</div>
+  </div>
+  <div class="hdr-badge">
+    <div class="hdr-badge-t">Selling Start</div>
+    <div class="hdr-badge-v">May 1, 2026</div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab on" onclick="showTab('generate',this)">🔑 Generate Keys</button>
+  <button class="tab" onclick="showTab('bulk',this)">📦 Bulk Export</button>
+  <button class="tab" onclick="showTab('ledger',this)">📋 Sales Ledger</button>
+  <button class="tab" onclick="showTab('validate',this)">✅ Validate Key</button>
+  <button class="tab" onclick="showTab('pricing',this)">💰 Pricing Guide</button>
+</div>
+
+<!-- ═══════════════ GENERATE TAB ═══════════════ -->
+<div id="tab-generate">
+  <div class="warn-box">
+    ⚠️ <strong>Creator Only</strong> — This tool generates cryptographically signed license keys using SHA-256. Keep this file private. Never share it with customers.
+  </div>
+
+  <div class="grid2">
+    <!-- Left: Configurator -->
+    <div>
+      <div class="card">
+        <div class="card-title">
+          <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="1.5" stroke="#1a56db" stroke-width="1.3"/><path d="M2 7h12M6 10h4" stroke="#1a56db" stroke-width="1.3" stroke-linecap="round"/></svg>
+          Key Configuration
+        </div>
+
+        <div class="fg">
+          <label class="fl">Plan</label>
+          <select class="fi" id="plan-sel" onchange="updatePreview()">
+            <option value="BASIC">BASIC — ₹1,999/year</option>
+            <option value="PRO" selected>PRO — ₹3,999/year</option>
+            <option value="ENTERPRISE">ENTERPRISE — ₹7,999/year</option>
+          </select>
+        </div>
+
+        <div class="fg">
+          <label class="fl">License Year (Expiry: April 30 of this year)</label>
+          <select class="fi" id="year-sel" onchange="updatePreview()">
+            <option value="2027" selected>2027 — Expires Apr 30, 2027 (Sell May 2026–Apr 2027)</option>
+            <option value="2028">2028 — Expires Apr 30, 2028 (Sell May 2027–Apr 2028)</option>
+            <option value="2029">2029 — Expires Apr 30, 2029 (Sell May 2028–Apr 2029)</option>
+            <option value="2030">2030 — Expires Apr 30, 2030 (Sell May 2029–Apr 2030)</option>
+          </select>
+        </div>
+
+        <div class="fg">
+          <label class="fl">Serial Number</label>
+          <div style="display:flex;gap:8px">
+            <input class="fi" type="number" id="serial-inp" min="1" max="9999" value="1" oninput="updatePreview()" style="flex:1">
+            <button class="btn btn-sm" onclick="autoSerial()">Auto Next</button>
+          </div>
+          <div style="font-size:11px;color:var(--tx3);margin-top:4px">Serial is just a counter — use 1, 2, 3… per plan per year. Max: 9999.</div>
+        </div>
+
+        <div class="fg">
+          <label class="fl">Customer Name (for your records)</label>
+          <input class="fi" id="cust-name" placeholder="e.g. Sri Murugan Tuition">
+        </div>
+
+        <div class="fg">
+          <label class="fl">Customer Phone</label>
+          <input class="fi" id="cust-phone" placeholder="+91 98765 43210" type="tel">
+        </div>
+
+        <div class="fg">
+          <label class="fl">Quantity (generate multiple sequential keys)</label>
+          <input class="fi" type="number" id="qty-inp" min="1" max="50" value="1" oninput="updatePreview()">
+        </div>
+
+        <button class="btn btn-p btn-lg" style="width:100%;justify-content:center" onclick="generateKeys()">
+          <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M8 2a4 4 0 014 4v1h1a1 1 0 010 2H3a1 1 0 010-2h1V6a4 4 0 014-4z" stroke="currentColor" stroke-width="1.3"/><rect x="5" y="9" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/></svg>
+          Generate License Key(s)
+        </button>
+      </div>
+
+      <!-- Plan features reference -->
+      <div class="card" style="padding:14px">
+        <div class="card-title" style="margin-bottom:10px">Plan Features Reference</div>
+        <div class="plan-grid" style="margin-bottom:0">
+          <div class="plan-card" id="pc-basic" onclick="setPlan('BASIC',this)">
+            <div class="plan-name">BASIC</div>
+            <div class="plan-price" style="font-size:16px">₹1,999</div>
+            <div class="plan-feat">150 students<br>Google Sheets<br>No AI<br>No Reports</div>
+          </div>
+          <div class="plan-card sel" id="pc-pro" onclick="setPlan('PRO',this)">
+            <div class="plan-name">PRO ⭐</div>
+            <div class="plan-price" style="font-size:16px">₹3,999</div>
+            <div class="plan-feat">500 students<br>Google Sheets<br>AI Features<br>Reports</div>
+          </div>
+          <div class="plan-card" id="pc-ent" onclick="setPlan('ENTERPRISE',this)">
+            <div class="plan-name">ENTERPRISE</div>
+            <div class="plan-price" style="font-size:16px">₹7,999</div>
+            <div class="plan-feat">Unlimited<br>Multi-Center<br>All Features<br>API Access</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Output -->
+    <div>
+      <div class="card">
+        <div class="card-title">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M8 2a4 4 0 014 4v1h1a1 1 0 010 2H3a1 1 0 010-2h1V6a4 4 0 014-4z" stroke="#16a34a" stroke-width="1.3"/><rect x="5" y="9" width="6" height="5" rx="1" stroke="#16a34a" stroke-width="1.3"/></svg>
+          Generated Keys
+        </div>
+
+        <!-- Preview before generate -->
+        <div id="key-preview" style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:12px;font-size:12px;color:var(--tx2)">
+          <div style="font-size:11px;color:var(--tx3);margin-bottom:6px;font-weight:600;text-transform:uppercase">Preview</div>
+          <div id="preview-key" style="font-family:monospace;font-size:14px;font-weight:700;color:var(--pr)">PRO-2027-0001-XXXXXXXX</div>
+          <div id="preview-meta" style="font-size:11px;color:var(--tx3);margin-top:4px">Expires: Apr 30, 2027 · 1 key</div>
+        </div>
+
+        <div class="key-box" id="key-output">
+          <div style="color:#475569;font-size:11px;text-align:center;padding:20px 0">Click "Generate License Key(s)" to create keys</div>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-top:12px" id="key-actions" style="display:none">
+          <button class="btn btn-g btn-sm" onclick="copyAllKeys()" id="btn-copy-all" style="display:none">
+            <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><rect x="4" y="4" width="8" height="8" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M2 10V3a1 1 0 011-1h7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Copy All Keys
+          </button>
+          <button class="btn btn-sm" onclick="downloadKeysTxt()" id="btn-dl-keys" style="display:none">
+            <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><path d="M7 2v8M4 7l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Download .txt
+          </button>
+          <button class="btn btn-sm" onclick="saveToLedger()" id="btn-save-ledger" style="display:none">
+            <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><path d="M2 12V4a1 1 0 011-1h8a1 1 0 011 1v8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M5 12V8h4v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Save to Ledger
+          </button>
+        </div>
+      </div>
+
+      <!-- How to deliver -->
+      <div class="card" style="padding:14px">
+        <div class="card-title" style="margin-bottom:10px;font-size:12px">How to Deliver to Customer</div>
+        <div style="font-size:12px;color:var(--tx2);line-height:2">
+          <div>1. Generate key → copy it</div>
+          <div>2. WhatsApp to customer: <em>"Your Kalam ERP key: PRO-2027-0001-XXXXXXXX"</em></div>
+          <div>3. Customer opens ERP → Settings → Upgrade Plan → paste key → Activate</div>
+          <div>4. Or: pre-fill in their <code>config.js</code> → <code>LICENSE_KEY: 'PRO-2027-0001-XXXXXXXX'</code></div>
+          <div>5. Mark as "sold" in the Sales Ledger tab</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ BULK EXPORT TAB ═══════════════ -->
+<div id="tab-bulk" style="display:none">
+  <div class="card">
+    <div class="card-title">📦 Bulk Key Generation & Export</div>
+    <div class="info-box">Generate a full batch of keys for a plan + year combination. Downloads as CSV ready for your sales tracking spreadsheet.</div>
+    <div class="grid3">
+      <div class="fg">
+        <label class="fl">Plan</label>
+        <select class="fi" id="bulk-plan">
+          <option value="BASIC">BASIC</option>
+          <option value="PRO" selected>PRO</option>
+          <option value="ENTERPRISE">ENTERPRISE</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl">Year</label>
+        <select class="fi" id="bulk-year">
+          <option value="2027" selected>2027 (expires Apr 30, 2027)</option>
+          <option value="2028">2028 (expires Apr 30, 2028)</option>
+          <option value="2029">2029 (expires Apr 30, 2029)</option>
+          <option value="2030">2030 (expires Apr 30, 2030)</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl">Quantity (1–500)</label>
+        <input class="fi" type="number" id="bulk-qty" min="1" max="500" value="100">
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Starting Serial</label>
+      <input class="fi" type="number" id="bulk-start" value="1" min="1" max="9999">
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn btn-p btn-lg" onclick="generateBulk()">
+        <svg viewBox="0 0 16 16" fill="none" width="15" height="15"><rect x="2" y="2" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Generate Batch
+      </button>
+      <button class="btn btn-g btn-lg" onclick="downloadBulkCSV()" id="btn-dl-bulk" style="display:none">
+        <svg viewBox="0 0 16 16" fill="none" width="15" height="15"><path d="M8 2v8M5 7l3 3 3-3M2 13h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download CSV
+      </button>
+      <button class="btn btn-sm" onclick="downloadBulkTxt()" id="btn-dl-bulk-txt" style="display:none">Download .txt</button>
+    </div>
+  </div>
+
+  <div class="card" id="bulk-preview" style="display:none">
+    <div class="card-title">Preview — <span id="bulk-count">0</span> keys generated</div>
+    <div class="key-box" id="bulk-output" style="max-height:350px;overflow-y:auto"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ LEDGER TAB ═══════════════ -->
+<div id="tab-ledger" style="display:none">
+  <div class="stat-row" id="ledger-stats">
+    <div class="stat-box"><div class="stat-lbl">Total Sold</div><div class="stat-val" id="ls-total">0</div><div class="stat-sub">All plans</div></div>
+    <div class="stat-box"><div class="stat-lbl">This Month</div><div class="stat-val" id="ls-month">0</div><div class="stat-sub" id="ls-month-sub">—</div></div>
+    <div class="stat-box"><div class="stat-lbl">Revenue</div><div class="stat-val" id="ls-rev">₹0</div><div class="stat-sub">Estimated</div></div>
+    <div class="stat-box"><div class="stat-lbl">Active</div><div class="stat-val" id="ls-active">0</div><div class="stat-sub">Not expired</div></div>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+      <div class="card-title" style="margin-bottom:0">Sales Ledger</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <button class="btn btn-sm" onclick="exportLedger()">Export CSV</button>
+        <button class="btn btn-r btn-sm" onclick="clearLedger()">Clear All</button>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Key</th><th>Plan</th><th>Customer</th><th>Phone</th><th>Sold Date</th><th>Expires</th><th>Status</th><th>Action</th></tr></thead>
+        <tbody id="ledger-body"></tbody>
+      </table>
+    </div>
+    <div id="ledger-empty" style="text-align:center;padding:30px;color:var(--tx3);font-size:13px">No sales recorded yet. Generate keys and click "Save to Ledger".</div>
+  </div>
+</div>
+
+<!-- ═══════════════ VALIDATE TAB ═══════════════ -->
+<div id="tab-validate" style="display:none">
+  <div class="card">
+    <div class="card-title">✅ Validate License Key</div>
+    <div class="info-box">Enter any license key to check if it is valid, which plan it belongs to, and when it expires.</div>
+    <div class="fg">
+      <label class="fl">License Key</label>
+      <input class="fi" id="val-key" placeholder="e.g. PRO-2027-0001-BF1D1D65" style="font-family:monospace;font-size:13px;letter-spacing:.04em" oninput="this.value=this.value.toUpperCase()">
+    </div>
+    <button class="btn btn-p" onclick="validateKey()">
+      <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M2 8l4 4 8-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Validate Key
+    </button>
+    <div id="val-result" style="margin-top:16px"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔬 Test Sample Keys</div>
+    <div style="display:flex;flex-direction:column;gap:6px" id="sample-keys-list"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ PRICING TAB ═══════════════ -->
+<div id="tab-pricing" style="display:none">
+  <div class="card">
+    <div class="card-title">💰 Pricing & Selling Guide</div>
+    <div class="plan-grid" style="margin-bottom:20px">
+      <div class="plan-card">
+        <div class="plan-name">BASIC</div>
+        <div class="plan-price">₹1,999<span style="font-size:11px;color:var(--tx2)">/yr</span></div>
+        <div class="plan-feat">Up to 150 students<br>✅ Auto Backup<br>✅ Google Sheets<br>❌ AI Features<br>❌ Reports</div>
+      </div>
+      <div class="plan-card sel">
+        <div class="plan-name" style="color:var(--pr)">PRO ⭐ Most Popular</div>
+        <div class="plan-price">₹3,999<span style="font-size:11px;color:var(--tx2)">/yr</span></div>
+        <div class="plan-feat">Up to 500 students<br>✅ Auto Backup<br>✅ Google Sheets<br>✅ AI Features<br>✅ Reports</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">ENTERPRISE</div>
+        <div class="plan-price">₹7,999<span style="font-size:11px;color:var(--tx2)">/yr</span></div>
+        <div class="plan-feat">Unlimited students<br>✅ Multi-Center<br>✅ All Features<br>✅ API Access<br>✅ Priority Support</div>
+      </div>
+    </div>
+
+    <div class="card-title" style="margin-bottom:10px">License Year Explained</div>
+    <div class="tbl-wrap" style="margin-bottom:16px">
+      <table>
+        <thead><tr><th>Key Year</th><th>Sell Period</th><th>Expires</th><th>Duration</th></tr></thead>
+        <tbody>
+          <tr><td><code>2027</code></td><td>May 1, 2026 – Apr 30, 2027</td><td>Apr 30, 2027</td><td>Up to 1 year</td></tr>
+          <tr><td><code>2028</code></td><td>May 1, 2027 – Apr 30, 2028</td><td>Apr 30, 2028</td><td>Up to 1 year</td></tr>
+          <tr><td><code>2029</code></td><td>May 1, 2028 – Apr 30, 2029</td><td>Apr 30, 2029</td><td>Up to 1 year</td></tr>
+          <tr><td><code>2030</code></td><td>May 1, 2029 – Apr 30, 2030</td><td>Apr 30, 2030</td><td>Up to 1 year</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-title" style="margin-bottom:10px">Revenue Projections</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Customers</th><th>Avg Plan</th><th>Setup Fee</th><th>Annual Revenue</th></tr></thead>
+        <tbody>
+          <tr><td>10</td><td>Pro ₹3,999</td><td>₹500 × 10</td><td><strong>₹44,990</strong></td></tr>
+          <tr><td>25</td><td>Pro ₹3,999</td><td>₹500 × 25</td><td><strong>₹1,12,475</strong></td></tr>
+          <tr><td>50</td><td>Mix avg ₹3,200</td><td>₹500 × 50</td><td><strong>₹1,85,000</strong></td></tr>
+          <tr><td>100</td><td>Mix avg ₹3,200</td><td>₹0 (repeat)</td><td><strong>₹3,20,000</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+/* ═══════════════════════════════════════════════════
+   SHA-256 ENGINE + KEY GENERATION
+═══════════════════════════════════════════════════ */
+function sha256(msg){
+  const K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+  function r(x,n){return(x>>>n)|(x<<(32-n));}
+  function s(x,n){return x>>>n;}
+  function a(x,y){var l=(x&0xffff)+(y&0xffff);return((x>>16)+(y>>16)+(l>>16)<<16)|(l&0xffff);}
+  var u=[];
+  for(var i=0;i<msg.length;i++){var c=msg.charCodeAt(i);if(c<128)u.push(c);else if(c<2048)u.push((c>>6)|192,(c&63)|128);else u.push((c>>12)|224,((c>>6)&63)|128,(c&63)|128);}
+  var L=u.length,M=new Uint32Array(Math.ceil((L+9)/64)*16);
+  for(var j=0;j<L;j++)M[j>>2]|=u[j]<<(24-(j%4)*8);
+  M[L>>2]|=0x80<<(24-(L%4)*8);M[M.length-1]=L*8;
+  var H=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+  for(var b=0;b<M.length;b+=16){
+    var W=new Uint32Array(64);
+    for(var t=0;t<16;t++)W[t]=M[b+t];
+    for(var t=16;t<64;t++)W[t]=a(a((r(W[t-2],17)^r(W[t-2],19)^s(W[t-2],10)),W[t-7]),a((r(W[t-15],7)^r(W[t-15],18)^s(W[t-15],3)),W[t-16]));
+    var aa=H[0],bb=H[1],cc=H[2],dd=H[3],ee=H[4],ff=H[5],gg=H[6],hh=H[7];
+    for(var t=0;t<64;t++){var T1=a(a(a(a(hh,(r(ee,6)^r(ee,11)^r(ee,25))),(ee&ff^(~ee&gg))),K[t]),W[t]);var T2=a((r(aa,2)^r(aa,13)^r(aa,22)),(aa&bb^aa&cc^bb&cc));hh=gg;gg=ff;ff=ee;ee=a(dd,T1);dd=cc;cc=bb;bb=aa;aa=a(T1,T2);}
+    H[0]=a(aa,H[0]);H[1]=a(bb,H[1]);H[2]=a(cc,H[2]);H[3]=a(dd,H[3]);H[4]=a(ee,H[4]);H[5]=a(ff,H[5]);H[6]=a(gg,H[6]);H[7]=a(hh,H[7]);
+  }
+  return H.map(n=>('00000000'+n.toString(16).toUpperCase()).slice(-8)).join('');
+}
+
+// SALT — same as in the ERP app (must match exactly)
+const SALT = ['KalamERP@','2025#Tamil','Nadu$Secu','re!XK9'].join('');
+
+function makeKey(plan, year, serial) {
+  const payload = `${SALT}:${plan}:${year}:${String(serial).padStart(4,'0')}`;
+  const hash8 = sha256(payload).substring(0, 8);
+  return `${plan}-${year}-${String(serial).padStart(4,'0')}-${hash8}`;
+}
+
+function validateKeyFn(key) {
+  if (!key) return { valid: false, reason: 'Empty key' };
+  const parts = key.trim().toUpperCase().split('-');
+  if (parts.length < 4) return { valid: false, reason: 'Invalid format (need PLAN-YEAR-SERIAL-HASH)' };
+  const plan = parts[0], year = parts[1], serial = parts[2], hash = parts[3];
+  const PLANS = ['BASIC','PRO','ENTERPRISE'];
+  if (!PLANS.includes(plan)) return { valid: false, reason: `Unknown plan "${plan}". Valid: BASIC, PRO, ENTERPRISE` };
+  const y = parseInt(year), s = parseInt(serial);
+  if (isNaN(y) || y < 2025 || y > 2035) return { valid: false, reason: `Invalid year ${year}` };
+  if (isNaN(s) || s < 1 || s > 9999) return { valid: false, reason: `Invalid serial ${serial}` };
+  const payload = `${SALT}:${plan}:${y}:${String(s).padStart(4,'0')}`;
+  const expected = sha256(payload).substring(0, 8);
+  if (expected !== hash) return { valid: false, reason: `Hash mismatch. Expected: ${expected}, Got: ${hash}` };
+  const expiry = new Date(y, 3, 30, 23, 59, 59); // April 30
+  const now = new Date();
+  const daysLeft = Math.ceil((expiry - now) / 86400000);
+  const expired = now > expiry;
+  return { valid: true, plan, year: y, serial: s, expiry, expired, daysLeft };
+}
+
+/* ═══════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════ */
+let generatedKeys = [];
+let bulkKeys = [];
+let ledger = JSON.parse(localStorage.getItem('erp_ledger') || '[]');
+const PLAN_PRICES = { BASIC: 1999, PRO: 3999, ENTERPRISE: 7999 };
+
+/* ═══════════════════════════════════════════════════
+   UI FUNCTIONS
+═══════════════════════════════════════════════════ */
+function showTab(id, btn) {
+  document.querySelectorAll('[id^="tab-"]').forEach(el => el.style.display = 'none');
+  document.getElementById('tab-' + id).style.display = 'block';
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'));
+  if (btn) btn.classList.add('on');
+  if (id === 'ledger') renderLedger();
+  if (id === 'validate') renderSampleKeys();
+}
+
+function toast(msg, dur=3000) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), dur);
+}
+
+function setPlan(plan, card) {
+  document.getElementById('plan-sel').value = plan;
+  document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('sel'));
+  card.classList.add('sel');
+  updatePreview();
+}
+
+function updatePreview() {
+  const plan = document.getElementById('plan-sel').value;
+  const year = document.getElementById('year-sel').value;
+  const serial = parseInt(document.getElementById('serial-inp').value) || 1;
+  const qty = parseInt(document.getElementById('qty-inp').value) || 1;
+  const sampleKey = makeKey(plan, year, serial);
+  document.getElementById('preview-key').textContent = qty === 1 ? sampleKey : sampleKey + (qty > 1 ? ` … +${qty-1} more` : '');
+  document.getElementById('preview-meta').textContent = `Expires: Apr 30, ${year} · ${qty} key${qty!==1?'s':''}`;
+  // Sync plan cards
+  ['BASIC','PRO','ENTERPRISE'].forEach(p => {
+    const el = document.getElementById('pc-' + p.toLowerCase().replace('enterprise','ent'));
+    if (el) el.classList.toggle('sel', p === plan);
+  });
+}
+
+function autoSerial() {
+  const plan = document.getElementById('plan-sel').value;
+  const year = document.getElementById('year-sel').value;
+  const existing = ledger.filter(l => l.plan === plan && l.year == year);
+  const maxSerial = existing.reduce((m, l) => Math.max(m, parseInt(l.serial) || 0), 0);
+  document.getElementById('serial-inp').value = maxSerial + 1;
+  updatePreview();
+  toast('Auto-set to serial #' + (maxSerial + 1));
+}
+
+/* ═══════════════════════════════════════════════════
+   GENERATE
+═══════════════════════════════════════════════════ */
+function generateKeys() {
+  const plan  = document.getElementById('plan-sel').value;
+  const year  = parseInt(document.getElementById('year-sel').value);
+  const start = parseInt(document.getElementById('serial-inp').value) || 1;
+  const qty   = Math.min(50, Math.max(1, parseInt(document.getElementById('qty-inp').value) || 1));
+  const cname = document.getElementById('cust-name').value.trim();
+  const cphone = document.getElementById('cust-phone').value.trim();
+
+  generatedKeys = [];
+  for (let i = 0; i < qty; i++) {
+    const serial = start + i;
+    const key = makeKey(plan, year, serial);
+    generatedKeys.push({ key, plan, year, serial, cname, cphone, date: new Date().toLocaleDateString('en-IN') });
+  }
+
+  // Render
+  const out = document.getElementById('key-output');
+  out.innerHTML = generatedKeys.map((k, i) => `
+    <div class="key-item">
+      <span class="key-meta">#${k.serial}</span>
+      <span class="key-val">${k.key}</span>
+      <span class="key-meta">Apr 30, ${k.year}</span>
+      <button class="key-copy" onclick="copyOne('${k.key}')">Copy</button>
+    </div>`).join('');
+
+  ['btn-copy-all','btn-dl-keys','btn-save-ledger'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'inline-flex';
+  });
+
+  toast(`✅ ${qty} key${qty!==1?'s':''} generated!`);
+}
+
+function copyOne(key) {
+  navigator.clipboard.writeText(key).then(() => toast('✅ Copied: ' + key)).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = key; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    toast('✅ Copied: ' + key);
+  });
+}
+
+function copyAllKeys() {
+  const text = generatedKeys.map(k => k.key).join('\n');
+  navigator.clipboard.writeText(text).then(() => toast(`✅ ${generatedKeys.length} keys copied!`)).catch(() => {});
+}
+
+function downloadKeysTxt() {
+  const plan = generatedKeys[0]?.plan || 'KEYS';
+  const year = generatedKeys[0]?.year || '';
+  let txt = `KALAM TUITION ERP — LICENSE KEYS\n`;
+  txt += `Plan: ${plan} | Year: ${year} | Expires: Apr 30, ${year}\n`;
+  txt += `Generated: ${new Date().toLocaleString('en-IN')}\n`;
+  txt += '='.repeat(55) + '\n\n';
+  txt += generatedKeys.map(k => `${k.key}  [Serial #${k.serial}]`).join('\n');
+  txt += '\n\nInstructions: Customer pastes the key in Settings → Upgrade Plan → Activate\n';
+  const blob = new Blob([txt], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `kalam-keys-${plan}-${year}-${new Date().toISOString().slice(0,10)}.txt`;
+  a.click();
+  toast('✅ Downloaded!');
+}
+
+function saveToLedger() {
+  generatedKeys.forEach(k => {
+    if (!ledger.find(l => l.key === k.key)) {
+      ledger.push({ key: k.key, plan: k.plan, year: k.year, serial: k.serial, cname: k.cname, cphone: k.cphone, date: k.date, status: 'sold' });
+    }
+  });
+  localStorage.setItem('erp_ledger', JSON.stringify(ledger));
+  toast(`✅ ${generatedKeys.length} key${generatedKeys.length!==1?'s':''} saved to ledger!`);
+}
+
+/* ═══════════════════════════════════════════════════
+   BULK
+═══════════════════════════════════════════════════ */
+function generateBulk() {
+  const plan  = document.getElementById('bulk-plan').value;
+  const year  = parseInt(document.getElementById('bulk-year').value);
+  const qty   = Math.min(500, Math.max(1, parseInt(document.getElementById('bulk-qty').value) || 100));
+  const start = parseInt(document.getElementById('bulk-start').value) || 1;
+
+  bulkKeys = [];
+  for (let i = 0; i < qty; i++) {
+    const s = start + i;
+    bulkKeys.push({ key: makeKey(plan, year, s), plan, year, serial: s, expires: `Apr 30, ${year}`, status: 'unused', cname: '', cphone: '', date: '' });
+  }
+
+  const out = document.getElementById('bulk-output');
+  out.innerHTML = bulkKeys.slice(0, 50).map(k =>
+    `<div class="key-item"><span class="key-meta">#${k.serial}</span><span class="key-val">${k.key}</span><span class="key-meta">${k.expires}</span></div>`
+  ).join('') + (bulkKeys.length > 50 ? `<div style="color:#475569;font-size:11px;padding:8px 0">... and ${bulkKeys.length - 50} more (all in download)</div>` : '');
+
+  document.getElementById('bulk-count').textContent = qty;
+  document.getElementById('bulk-preview').style.display = 'block';
+  ['btn-dl-bulk','btn-dl-bulk-txt'].forEach(id => { const el=document.getElementById(id); if(el) el.style.display='inline-flex'; });
+  toast(`✅ ${qty} keys generated!`);
+}
+
+function downloadBulkCSV() {
+  const hdrs = 'serial,key,plan,year,expires,status,customer_name,customer_phone,sold_date';
+  const rows = bulkKeys.map(k => `${k.serial},${k.key},${k.plan},${k.year},${k.expires},${k.status},${k.cname||''},${k.cphone||''},${k.date||''}`);
+  const csv = hdrs + '\n' + rows.join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `kalam-keys-${bulkKeys[0]?.plan}-${bulkKeys[0]?.year}-bulk.csv`;
+  a.click();
+  toast('✅ CSV downloaded!');
+}
+
+function downloadBulkTxt() {
+  const txt = bulkKeys.map(k => k.key).join('\n');
+  const blob = new Blob([txt], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `kalam-keys-${bulkKeys[0]?.plan}-${bulkKeys[0]?.year}.txt`;
+  a.click();
+  toast('✅ Downloaded!');
+}
+
+/* ═══════════════════════════════════════════════════
+   LEDGER
+═══════════════════════════════════════════════════ */
+function renderLedger() {
+  const body = document.getElementById('ledger-body');
+  const empty = document.getElementById('ledger-empty');
+  if (ledger.length === 0) { body.innerHTML = ''; empty.style.display = 'block'; }
+  else {
+    empty.style.display = 'none';
+    body.innerHTML = ledger.map((l, i) => {
+      const exp = new Date(l.year, 3, 30);
+      const expired = new Date() > exp;
+      const daysLeft = Math.ceil((exp - new Date()) / 86400000);
+      const statusBadge = expired ? '<span class="badge br2">Expired</span>' : daysLeft < 60 ? `<span class="badge ba">Expires ${daysLeft}d</span>` : '<span class="badge bg">Active</span>';
+      return `<tr>
+        <td><code style="font-size:10px;color:#185FA5">${l.key}</code></td>
+        <td><span class="badge ${l.plan==='PRO'?'bp':l.plan==='ENTERPRISE'?'bg':'bb'}">${l.plan}</span></td>
+        <td style="font-weight:500">${l.cname||'—'}</td>
+        <td style="font-size:11px">${l.cphone||'—'}</td>
+        <td style="font-size:11px">${l.date||'—'}</td>
+        <td style="font-size:11px">Apr 30, ${l.year}</td>
+        <td>${statusBadge}</td>
+        <td><button class="btn btn-sm" onclick="removeLedgerEntry(${i})" style="color:#dc2626;border-color:#dc2626">✕</button></td>
+      </tr>`;
+    }).join('');
+  }
+  // Update stats
+  const now = new Date();
+  const thisMonth = now.toLocaleString('en-IN', { month: 'long', year: 'numeric' });
+  const monthly = ledger.filter(l => l.date && l.date.includes(now.getFullYear()));
+  const active = ledger.filter(l => new Date(l.year, 3, 30) > now);
+  const revenue = ledger.reduce((s, l) => s + (PLAN_PRICES[l.plan] || 0), 0);
+  document.getElementById('ls-total').textContent = ledger.length;
+  document.getElementById('ls-month').textContent = monthly.length;
+  document.getElementById('ls-month-sub').textContent = thisMonth;
+  document.getElementById('ls-rev').textContent = '₹' + revenue.toLocaleString('en-IN');
+  document.getElementById('ls-active').textContent = active.length;
+}
+
+function removeLedgerEntry(i) {
+  if (confirm('Remove this entry from ledger?')) {
+    ledger.splice(i, 1);
+    localStorage.setItem('erp_ledger', JSON.stringify(ledger));
+    renderLedger();
+    toast('Entry removed');
+  }
+}
+
+function exportLedger() {
+  const hdrs = 'key,plan,year,customer_name,customer_phone,sold_date,expires,status';
+  const rows = ledger.map(l => `${l.key},${l.plan},${l.year},${l.cname||''},${l.cphone||''},${l.date||''},Apr 30 ${l.year},${new Date(l.year,3,30)<new Date()?'expired':'active'}`);
+  const csv = hdrs + '\n' + rows.join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `kalam-ledger-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  toast('✅ Ledger exported!');
+}
+
+function clearLedger() {
+  if (confirm('Clear ALL ledger entries? This cannot be undone.')) {
+    ledger = [];
+    localStorage.setItem('erp_ledger', JSON.stringify(ledger));
+    renderLedger();
+    toast('Ledger cleared');
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   VALIDATE
+═══════════════════════════════════════════════════ */
+function validateKey() {
+  const key = document.getElementById('val-key').value.trim().toUpperCase();
+  const r = validateKeyFn(key);
+  const el = document.getElementById('val-result');
+  if (!r.valid) {
+    el.innerHTML = `<div style="background:#fff1f2;border:.5px solid #fecdd3;border-radius:10px;padding:14px">
+      <div style="font-size:15px;font-weight:700;color:#dc2626;margin-bottom:6px">❌ Invalid Key</div>
+      <div style="font-size:13px;color:#9f1239">${r.reason}</div>
+    </div>`;
+    return;
+  }
+  const expired = r.expired;
+  const color = expired ? '#dc2626' : '#16a34a';
+  el.innerHTML = `<div style="background:${expired?'#fff1f2':'#f0fdf4'};border:.5px solid ${expired?'#fecdd3':'#bbf7d0'};border-radius:10px;padding:16px">
+    <div style="font-size:15px;font-weight:700;color:${color};margin-bottom:12px">${expired?'❌ Expired Key':'✅ Valid License Key'}</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px">
+      <div><span style="color:var(--tx2)">Plan:</span> <strong>${r.plan}</strong></div>
+      <div><span style="color:var(--tx2)">Year:</span> <strong>${r.year}</strong></div>
+      <div><span style="color:var(--tx2)">Serial:</span> <strong>#${r.serial}</strong></div>
+      <div><span style="color:var(--tx2)">Expires:</span> <strong>Apr 30, ${r.year}</strong></div>
+      <div><span style="color:var(--tx2)">Status:</span> <strong style="color:${color}">${expired?'EXPIRED':'ACTIVE'}</strong></div>
+      <div><span style="color:var(--tx2)">Days left:</span> <strong style="color:${color}">${r.expired?'Expired':r.daysLeft+' days'}</strong></div>
+    </div>
+  </div>`;
+}
+
+function renderSampleKeys() {
+  const samples = [
+    makeKey('BASIC','2027',1),
+    makeKey('PRO','2027',1),
+    makeKey('ENTERPRISE','2027',1),
+    makeKey('PRO','2028',1),
+    makeKey('PRO','2029',1),
+  ];
+  document.getElementById('sample-keys-list').innerHTML = samples.map(k => {
+    const plan = k.split('-')[0];
+    const yr = k.split('-')[1];
+    const badge = plan==='PRO'?'bp':plan==='ENTERPRISE'?'bg':'bb';
+    return `<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg);border-radius:8px;flex-wrap:wrap;gap:6px">
+      <span class="badge ${badge}">${plan}</span>
+      <code style="font-size:12px;font-weight:700;color:#185FA5;flex:1">${k}</code>
+      <span style="font-size:11px;color:var(--tx3)">Apr 30, ${yr}</span>
+      <button class="btn btn-sm" onclick="document.getElementById('val-key').value='${k}';showTab('validate');validateKey()">Validate</button>
+      <button class="key-copy" style="background:#185FA5;color:#fff;border-color:#185FA5;padding:4px 10px;border-radius:6px" onclick="copyOne('${k}')">Copy</button>
+    </div>`;
+  }).join('');
+}
+
+/* ═══════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════ */
+updatePreview();
+// Set plan card highlights
+document.getElementById('plan-sel').addEventListener('change', function() {
+  const p = this.value;
+  ['BASIC','PRO','ENTERPRISE'].forEach(plan => {
+    const id = 'pc-'+(plan==='ENTERPRISE'?'ent':plan.toLowerCase());
+    const el = document.getElementById(id);
+    if(el) el.classList.toggle('sel', plan===p);
+  });
+  updatePreview();
+});
+</script>
+</body>
+</html>
